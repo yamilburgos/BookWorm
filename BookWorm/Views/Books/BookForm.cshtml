@@ -1,0 +1,51 @@
+﻿@model BookWorm.Models.Books
+
+@{
+    ViewBag.Title = @Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("SaveBooks", "Books")) {
+
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+
+    <div class="form-group">
+        @Html.LabelFor(b => b.Title)
+        @Html.TextBoxFor(b => b.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Author)
+        @Html.TextBoxFor(b => b.Author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Author)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.CoverArt)
+        @Html.TextBoxFor(b => b.CoverArt, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.CoverArt)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Description)
+        @Html.TextBoxFor(b => b.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Rating)
+        @Html.TextBoxFor(b => b.Rating, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Rating)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.BookSeries)
+        @Html.TextBoxFor(b => b.BookSeries, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.BookSeries)
+    </div>
+
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

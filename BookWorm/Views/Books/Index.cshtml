@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BookWorm.Models.Books>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.PageTitle = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="colored-tablehead">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(book => book.CoverArt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(book => book.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(book => book.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(book => book.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(book => book.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(book => book.BookSeries)
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var book in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => book.CoverArt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => book.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => book.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => book.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => book.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => book.BookSeries)
+            </td>
+
+
+
+
+            <td>
+                @Html.ActionLink("Edit", "QuoteSummary", new { quoteId = book.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "QuoteSummary", new { quoteId = book.Id })
+            </td>
+        </tr>
+    }
+</table>
