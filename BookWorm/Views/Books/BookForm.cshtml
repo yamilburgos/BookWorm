@@ -1,7 +1,7 @@
 ﻿@model BookWorm.Models.Books
 
 @{
-    ViewBag.Title = @Model.Title;
+    ViewBag.Title = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,34 +12,35 @@
     @Html.ValidationSummary(true, "Please fix the following errors.")
 
     <div class="form-group">
-        @Html.LabelFor(b => b.Title)
-        @Html.TextBoxFor(b => b.Title, new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.Title)
+        @Html.LabelFor(book => book.Title)
+        @Html.TextBoxFor(book => book.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(book => book.Title)
     </div>
     <div class="form-group">
-        @Html.LabelFor(b => b.Author)
-        @Html.TextBoxFor(b => b.Author, new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.Author)
+        @Html.LabelFor(book => book.Author)
+        @Html.TextBoxFor(book => book.Author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(book => book.Author)
     </div>
     <div class="form-group">
-        @Html.LabelFor(b => b.CoverArt)
-        @Html.TextBoxFor(b => b.CoverArt, new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.CoverArt)
+        @Html.LabelFor(book => book.CoverArt)
+        @Html.TextBoxFor(book => book.CoverArt, new { @class = "form-control" })
+        @Html.ValidationMessageFor(book => book.CoverArt)
     </div>
     <div class="form-group">
-        @Html.LabelFor(b => b.Description)
-        @Html.TextBoxFor(b => b.Description, new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.Description)
+        @Html.LabelFor(book => book.Description)
+        @Html.TextBoxFor(book => book.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(book => book.Description)
     </div>
     <div class="form-group">
-        @Html.LabelFor(b => b.Rating)
-        @Html.TextBoxFor(b => b.Rating, new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.Rating)
+        @Html.LabelFor(book => book.Rating)
+        @Html.DropDownListFor(book => book.Rating, new SelectList(Model.RatingList),
+            "Select Rating", new { @class = "form-control" })
+        @Html.ValidationMessageFor(book => book.Rating)
     </div>
     <div class="form-group">
-        @Html.LabelFor(b => b.BookSeries)
-        @Html.TextBoxFor(b => b.BookSeries, new { @class = "form-control" })
-        @Html.ValidationMessageFor(b => b.BookSeries)
+        @Html.LabelFor(book => book.BookSeries)
+        @Html.TextBoxFor(book => book.BookSeries, new { @class = "form-control" })
+        @Html.ValidationMessageFor(book => book.BookSeries)
     </div>
 
     @Html.AntiForgeryToken()

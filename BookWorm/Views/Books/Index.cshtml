@@ -8,6 +8,8 @@
 
 <h2>Index</h2>
 
+<p>@Html.ActionLink("New Book", "NewBook", "Books", null, new { @class = "btn btn-primary" })</p>
+
 <table class="table table-bordered table-hover">
     <thead class="colored-tablehead">
         <tr>
@@ -63,7 +65,7 @@
 
 
             <td>
-                @Html.ActionLink("Edit", "QuoteSummary", new { quoteId = book.Id })
+                @Html.ActionLink("Edit", "EditBook", new { id = book.Id })
             </td>
             <td>
                 @Html.ActionLink("Delete", "QuoteSummary", new { quoteId = book.Id })

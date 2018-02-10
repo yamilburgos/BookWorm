@@ -9,13 +9,28 @@ namespace BookWorm.Controllers {
 
     public class BooksController : Controller {
 		public ActionResult Index() {
-            return View();
-        }
+			using (BookEntity BE = new BookEntity()) {
+				List<Books> bookList = new List<Books>();
 
-		public ActionResult AddBooks() {
+				bookList.AddRange(BE.Books.Where(book => book.Id != 0));
+
+				return View(bookList);
+			}
+		}
+
+		public ActionResult NewBook() {
 			Books bookModel = new Books();
 
 			return View("BookForm", bookModel);
+		}
+
+		public ActionResult EditBook(int id) {
+			using (BookEntity BE = new BookEntity()) {
+				Books thisBook = BE.Books.SingleOrDefault(b => b.Id == id);
+				if (thisBook == null) return HttpNotFound();
+
+				return View("MovieForm", thisBook);
+			}
 		}
 
 

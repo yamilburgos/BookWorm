@@ -157,16 +157,19 @@
     <Compile Include="Migrations\201802101715415_FirstTable.Designer.cs">
       <DependentUpon>201802101715415_FirstTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802101941491_NewRequirementsAdded.cs" />
+    <Compile Include="Migrations\201802101941491_NewRequirementsAdded.Designer.cs">
+      <DependentUpon>201802101941491_NewRequirementsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookEntity.cs" />
     <Compile Include="Models\Books.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BooksTableSQL.sql" />
     <Content Include="App_Data\BookWorm.Models.BookEntity.mdf" />
-    <Content Include="App_Data\BookWorm.Models.BookEntity_log.LDF">
-      <DependentUpon>BookWorm.Models.BookEntity.mdf</DependentUpon>
-    </Content>
+    <Content Include="App_Data\BookWorm.Models.BookEntity_log.LDF" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -189,7 +192,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -200,10 +205,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Books\BookForm.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -222,6 +226,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802101715415_FirstTable.resx">
       <DependentUpon>201802101715415_FirstTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802101941491_NewRequirementsAdded.resx">
+      <DependentUpon>201802101941491_NewRequirementsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
