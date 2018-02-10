@@ -29,10 +29,9 @@ namespace BookWorm.Controllers {
 				Books thisBook = BE.Books.SingleOrDefault(b => b.Id == id);
 				if (thisBook == null) return HttpNotFound();
 
-				return View("MovieForm", thisBook);
+				return View("BookForm", thisBook);
 			}
 		}
-
 
 		[HttpPost]
 		public ActionResult SaveBooks(Books books) {

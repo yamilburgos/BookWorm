@@ -43,7 +43,7 @@
     @foreach (var book in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => book.CoverArt)
+                <img class="coverSize" src="@Url.Content(book.CoverArt)" alt="Image" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => book.Title)
@@ -60,10 +60,6 @@
             <td>
                 @Html.DisplayFor(modelItem => book.BookSeries)
             </td>
-
-
-
-
             <td>
                 @Html.ActionLink("Edit", "EditBook", new { id = book.Id })
             </td>

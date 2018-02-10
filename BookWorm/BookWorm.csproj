@@ -161,6 +161,10 @@
     <Compile Include="Migrations\201802101941491_NewRequirementsAdded.Designer.cs">
       <DependentUpon>201802101941491_NewRequirementsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802102141521_NewRequirementsAdded1.cs" />
+    <Compile Include="Migrations\201802102141521_NewRequirementsAdded1.Designer.cs">
+      <DependentUpon>201802102141521_NewRequirementsAdded1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookEntity.cs" />
     <Compile Include="Models\Books.cs" />
@@ -229,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802101941491_NewRequirementsAdded.resx">
       <DependentUpon>201802101941491_NewRequirementsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802102141521_NewRequirementsAdded1.resx">
+      <DependentUpon>201802102141521_NewRequirementsAdded1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
