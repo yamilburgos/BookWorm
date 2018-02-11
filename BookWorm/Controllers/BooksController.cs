@@ -13,7 +13,6 @@ namespace BookWorm.Controllers {
 		public ActionResult Index() {
 			using (BookEntity BE = new BookEntity()) {
 				List<Books> bookList = new List<Books>();
-
 				bookList.AddRange(BE.Books.Where(book => book.Id != 0));
 
 				return View(bookList);
@@ -48,12 +47,8 @@ namespace BookWorm.Controllers {
 
 		[HttpPost]
 		public ActionResult SaveBooks(Books books) {
-			if (!ModelState.IsValid) {
-				Books bookList = new Books();
-
-				return View("BookForm", bookList);
-			}
-
+			if (!ModelState.IsValid) return View("BookForm", new Books());
+			
 			if (books.Id == 0) bookEntityContext.Books.Add(books);
 
 			else {

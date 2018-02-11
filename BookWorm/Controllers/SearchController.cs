@@ -17,20 +17,17 @@ namespace BookWorm.Controllers {
 		[ValidateAntiForgeryToken]
 		public ActionResult Index(SearchBooks searchBook) {
 			using (BookEntity BE = new BookEntity()) {
-				SearchBooks newSearch = new SearchBooks();
+				SearchBooks bookResults = new SearchBooks();
 
-				newSearch.BookList.AddRange(BE.Books.Where(b => 
-					b.Title.Contains(searchBook.Title) &&
-					b.Author.Contains(searchBook.Author) &&
-					b.Rating.Equals(searchBook.Rating) &&
-					b.BookSeries.Equals(searchBook.BookSeries)
-				));
+				bookResults.BookList.AddRange(BE.Books.Where(b =>
+					(b.Title.Trim().Contains(searchBook.Title.Trim() ?? " ")) &&
+					(b.Author.Trim().Contains(searchBook.Author.Trim() ?? " ")) &&
+					(b.BookSeries.Trim().Contains(searchBook.BookSeries.Trim())
+						|| searchBook.BookSeries == null) &&
+					(b.Rating == searchBook.Rating || searchBook.Rating == null)
+				).Take(10));
 
-				foreach(var book in newSearch.BookList) {
-					Console.WriteLine(book);
-				}
-
-				return View(newSearch);
+				return View(bookResults);
 			}
 		}
 	}
