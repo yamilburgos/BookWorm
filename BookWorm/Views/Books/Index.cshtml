@@ -11,65 +11,6 @@
 <p>@Html.ActionLink("New Book", "NewBook", "Books", null, new { @class = "btn btn-primary" })</p>
 
 <table class="table table-bordered table-hover">
-    <thead class="colored-tablehead">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(book => book.CoverArt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(book => book.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(book => book.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(book => book.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(book => book.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(book => book.BookSeries)
-            </th>
-            <th>
-                Edit
-            </th>
-            <th>
-                Delete
-            </th>
-        </tr>
-    </thead>
-
-    @foreach (var book in Model) {
-        <tr>
-            <td>
-                <img class="coverSize" src="@Url.Content(book.CoverArt)" alt="Image" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => book.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => book.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => book.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => book.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => book.BookSeries)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditBook", new { id = book.Id }, new { @class = "btn btn-primary" })
-            </td>
-            <td>
-                @using (Html.BeginForm("DeleteBook", "Books", new { id = book.Id })) {
-                    <button type="submit" onclick="return confirm('Really delete this Book?')" class="btn btn-primary">
-                        Delete
-                    </button>
-                }
-            </td>
-        </tr>
-    }
+    @Html.Partial("BookTableHeader", Model.FirstOrDefault())
+    @Html.Partial("BookTableRows")
 </table>

@@ -9,31 +9,28 @@ namespace BookWorm.Controllers {
 
     public class SearchController : Controller {
 
-		public ActionResult Index()	{
-			return View();
+		public ActionResult Index() {
+			return View(new SearchBooks());
 		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Index(SearchBooks searchBook) {
-			if (!ModelState.IsValid) {
-				return View();
-			}
-
 			using (BookEntity BE = new BookEntity()) {
-				var bookList = BE.Books.AddRange(BE.Books.Where(b => 
+				SearchBooks newSearch = new SearchBooks();
+
+				newSearch.BookList.AddRange(BE.Books.Where(b => 
 					b.Title.Contains(searchBook.Title) &&
 					b.Author.Contains(searchBook.Author) &&
 					b.Rating.Equals(searchBook.Rating) &&
 					b.BookSeries.Equals(searchBook.BookSeries)
 				));
 
-				if (bookList == null) {
-					ModelState.AddModelError("", "That book doesn't exist.");
-					return View("Index", searchBook);
+				foreach(var book in newSearch.BookList) {
+					Console.WriteLine(book);
 				}
 
-				return RedirectToAction("UserPolicies", "Admin");
+				return View(newSearch);
 			}
 		}
 	}

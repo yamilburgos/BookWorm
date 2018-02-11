@@ -215,6 +215,8 @@
     <Content Include="Views\Books\BookForm.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Shared\BookTableHeader.cshtml" />
+    <Content Include="Views\Shared\BookTableRows.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
