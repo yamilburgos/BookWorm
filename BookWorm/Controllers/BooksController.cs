@@ -8,11 +8,7 @@ using BookWorm.Models;
 namespace BookWorm.Controllers {
 
     public class BooksController : Controller {
-		private BookEntity bookEntityContext;
-
-		public BooksController() {
-			bookEntityContext = new BookEntity();
-		}
+		private BookEntity bookEntityContext = new BookEntity();
 
 		public ActionResult Index() {
 			using (BookEntity BE = new BookEntity()) {
@@ -25,9 +21,7 @@ namespace BookWorm.Controllers {
 		}
 
 		public ActionResult NewBook() {
-			Books bookModel = new Books();
-
-			return View("BookForm", bookModel);
+			return View("BookForm", new Books());
 		}
 
 		public ActionResult EditBook(int id) {
@@ -35,7 +29,7 @@ namespace BookWorm.Controllers {
 				Books thisBook = BE.Books.SingleOrDefault(b => b.Id == id);
 				if (thisBook == null) return HttpNotFound();
 
-				return View("BookForm", thisBook);
+				else return View("BookForm", thisBook);
 			}
 		}
 
@@ -60,9 +54,7 @@ namespace BookWorm.Controllers {
 				return View("BookForm", bookList);
 			}
 
-			if (books.Id == 0) {
-				bookEntityContext.Books.Add(books);
-			}
+			if (books.Id == 0) bookEntityContext.Books.Add(books);
 
 			else {
 				Books bookInDb = bookEntityContext.Books.Single(b => b.Id == books.Id);

@@ -65,8 +65,7 @@
             </td>
             <td>
                 @using (Html.BeginForm("DeleteBook", "Books", new { id = book.Id })) {
-                    <button type="submit" onclick="return confirm('Really delete this Book?')"
-                            class="btn btn-primary">
+                    <button type="submit" onclick="return confirm('Really delete this Book?')" class="btn btn-primary">
                         Delete
                     </button>
                 }
