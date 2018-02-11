@@ -61,10 +61,15 @@
                 @Html.DisplayFor(modelItem => book.BookSeries)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditBook", new { id = book.Id })
+                @Html.ActionLink("Edit", "EditBook", new { id = book.Id }, new { @class = "btn btn-primary" })
             </td>
             <td>
-                @Html.ActionLink("Delete", "QuoteSummary", new { quoteId = book.Id })
+                @using (Html.BeginForm("DeleteBook", "Books", new { id = book.Id })) {
+                    <button type="submit" onclick="return confirm('Really delete this Book?')"
+                            class="btn btn-primary">
+                        Delete
+                    </button>
+                }
             </td>
         </tr>
     }

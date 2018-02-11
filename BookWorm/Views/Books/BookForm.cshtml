@@ -43,6 +43,7 @@
         @Html.ValidationMessageFor(book => book.BookSeries)
     </div>
 
+    @Html.HiddenFor(book => book.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
