@@ -3,20 +3,16 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
@@ -24,5 +20,67 @@ textarea {
 }
 
 .coverSize {
-    width: 60%;
+    width: 55%;
+    display: block;
+    margin: auto;
+    padding-bottom: 5%;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-bottom: 30px;
+}
+
+.footNote {
+    text-align: center;
+}
+
+.table tbody > tr > td {
+    vertical-align:middle;
+}
+
+.table thead:first-child tr:first-child th {
+    text-align: center;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #52656B;
+    border: 0;
+    padding: 8px 20px;
+    border-radius: 10px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.open > .dropdown-toggle.btn-primary {
+    background-color: #95f482;
+    margin-top: 0;
+}
+
+label.error,
+.validation-summary-errors,
+.field-validation-error {
+    color: red;
+}
+
+input.error,
+.input-validation-error {
+    border: 2px solid red;
+}
+
+.form-control {
+    height: 41px;
+    box-shadow: none;
+    transition: border-color ease-in-out .10s, box-shadow ease-in-out .15s;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 2px solid #95f482;
 }
