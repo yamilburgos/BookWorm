@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BookWorm.Models.Books>
+﻿@model BookWorm.Models.SearchBooks
 
 @{
     ViewBag.Title = "Book List";
@@ -9,6 +9,6 @@
 <p>@Html.ActionLink("New Book", "NewBook", "Books", null, new { @class = "btn btn-primary" })</p>
 
 <table class="table table-bordered table-hover">
-    @Html.Partial("BookTableHeader", Model.FirstOrDefault())
-    @Html.Partial("BookTableRows")
+    @Html.Partial("BookTableHeader", Model.Books)
+    @Html.Partial("BookTableRows", Model.BookList)
 </table>

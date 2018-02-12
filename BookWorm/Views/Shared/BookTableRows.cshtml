@@ -15,7 +15,7 @@
             @Html.DisplayFor(modelItem => book.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => book.Rating)
+            @Html.DisplayFor(modelItem => book.StarRating)
         </td>
         <td>
             @Html.DisplayFor(modelItem => book.BookSeries)
@@ -27,6 +27,7 @@
                 <button type="submit" onclick="return confirm('Really delete this Book?')" class="btn btn-primary">
                     Delete
                 </button>
+                @Html.AntiForgeryToken()
             }
         </td>
     </tr>

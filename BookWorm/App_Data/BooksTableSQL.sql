@@ -13,6 +13,21 @@ CREATE TABLE [dbo].[Books] (
 
 GO
 INSERT INTO [dbo].[Books] VALUES
+	('The Fellowship of the Ring', 'J.R.R. Tolkien', 
+		'https://images.gr-assets.com/books/1298411339l/34.jpg', 
+		'Generic Description Here!', 
+		4, 'The Lord of the Rings'
+	),
+	('The Two Towers', 'J.R.R. Tolkien', 
+		'https://images.gr-assets.com/books/1298415523l/15241.jpg', 
+		'Generic Description Here!', 
+		4, 'The Lord of the Rings'
+	),
+	('The Return of the King', 'J.R.R. Tolkien', 
+		'https://images.gr-assets.com/books/1389977161l/18512.jpg', 
+		'Generic Description Here!', 
+		5, 'The Lord of the Rings'
+	),
 	('The Hunger Games', 'Suzanne Collins', 
 		'https://images.gr-assets.com/books/1447303603l/2767052.jpg', 
 		'Generic Description Here!', 

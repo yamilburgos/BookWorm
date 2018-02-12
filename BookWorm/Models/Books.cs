@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BookWorm.Models {
 
@@ -39,5 +38,7 @@ namespace BookWorm.Models {
 			4,
 			5
 		};
+
+		public string StarRating { get { return Rating + " Stars"; }}
 	}
 }

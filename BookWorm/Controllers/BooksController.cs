@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Linq;
 using System.Web.Mvc;
 using BookWorm.Models;
 
@@ -12,8 +9,8 @@ namespace BookWorm.Controllers {
 
 		public ActionResult Index() {
 			using (BookEntity BE = new BookEntity()) {
-				List<Books> bookList = new List<Books>();
-				bookList.AddRange(BE.Books.Where(book => book.Id != 0));
+				SearchBooks bookList = new SearchBooks();
+				bookList.BookList.AddRange(BE.Books);
 
 				return View(bookList);
 			}
@@ -33,6 +30,7 @@ namespace BookWorm.Controllers {
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult DeleteBook(int id) {
 			using (BookEntity BE = new BookEntity()) {
 				Books thisBook = BE.Books.SingleOrDefault(b => b.Id == id);
@@ -46,6 +44,7 @@ namespace BookWorm.Controllers {
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult SaveBooks(Books books) {
 			if (!ModelState.IsValid) return View("BookForm", new Books());
 			
@@ -63,7 +62,7 @@ namespace BookWorm.Controllers {
 			}
 
 			bookEntityContext.SaveChanges();
-			return RedirectToAction("Index", "Books");
+			return RedirectToAction("Index");
 		}
 	}
 }
