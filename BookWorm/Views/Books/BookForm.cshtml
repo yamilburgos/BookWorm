@@ -6,46 +6,60 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("SaveBooks", "Books")) {
+<div class="row">
+    <div class="col-md-5">
+        @using (Html.BeginForm("SaveBooks", "Books")) {
 
-    @Html.ValidationSummary(true, "Please fix the following errors.")
+            @Html.ValidationSummary(true, "Please fix the following errors.")
 
-    <div class="form-group">
-        @Html.LabelFor(book => book.Title)
-        @Html.TextBoxFor(book => book.Title, new { @class = "form-control" })
-        @Html.ValidationMessageFor(book => book.Title)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(book => book.Author)
-        @Html.TextBoxFor(book => book.Author, new { @class = "form-control" })
-        @Html.ValidationMessageFor(book => book.Author)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(book => book.CoverArt)
-        @Html.TextBoxFor(book => book.CoverArt, new { @class = "form-control" })
-        @Html.ValidationMessageFor(book => book.CoverArt)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(book => book.Description)
-        @Html.TextBoxFor(book => book.Description, new { @class = "form-control" })
-        @Html.ValidationMessageFor(book => book.Description)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(book => book.Rating)
-        @Html.DropDownListFor(book => book.Rating, new SelectList(Model.RatingList),
-            "Select Rating", new { @class = "form-control" })
-        @Html.ValidationMessageFor(book => book.Rating)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(book => book.BookSeries)
-        @Html.TextBoxFor(book => book.BookSeries, new { @class = "form-control" })
-        @Html.ValidationMessageFor(book => book.BookSeries)
+            <div class="form-group">
+                @Html.LabelFor(book => book.Title)
+                @Html.TextBoxFor(book => book.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(book => book.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(book => book.Author)
+                @Html.TextBoxFor(book => book.Author, new { @class = "form-control" })
+                @Html.ValidationMessageFor(book => book.Author)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(book => book.CoverArt)
+                @Html.TextBoxFor(book => book.CoverArt, new { @class = "form-control" })
+                @Html.ValidationMessageFor(book => book.CoverArt)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(book => book.Description)
+                @Html.TextBoxFor(book => book.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(book => book.Description)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(book => book.Rating)
+                @Html.DropDownListFor(book => book.Rating, new SelectList(Model.RatingList),
+                         "Select Rating", new { @class = "form-control" })
+                @Html.ValidationMessageFor(book => book.Rating)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(book => book.BookSeries)
+                @Html.TextBoxFor(book => book.BookSeries, new { @class = "form-control" })
+                @Html.ValidationMessageFor(book => book.BookSeries)
+            </div>
+
+            @Html.HiddenFor(book => book.Id)
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+        }
     </div>
 
-    @Html.HiddenFor(book => book.Id)
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Save</button>
-}
+    <div class="col-md-5">
+        @if (Model.CoverArt != null) {
+            <img class="coverSize" src="@Model.CoverArt"/>
+        }
+        else {
+            <img class="coverSize" src='~/Content/images/bookImageNotFound.jpg'/>
+        }
+    </div>
+</div>
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
