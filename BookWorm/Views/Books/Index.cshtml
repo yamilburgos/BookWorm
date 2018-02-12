@@ -1,12 +1,10 @@
 ﻿@model IEnumerable<BookWorm.Models.Books>
 
 @{
-    ViewBag.Title = "Index";
-    ViewBag.PageTitle = "Index";
+    ViewBag.Title = "Book List";
+    ViewBag.PageTitle = "Book List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
 
 <p>@Html.ActionLink("New Book", "NewBook", "Books", null, new { @class = "btn btn-primary" })</p>
 

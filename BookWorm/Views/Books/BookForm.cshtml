@@ -1,11 +1,10 @@
 ﻿@model BookWorm.Models.Books
 
 @{
-    ViewBag.Title = "Movies";
+    ViewBag.Title = "Book Form";
+    ViewBag.PageTitle = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>@Model.Title</h2>
 
 @using (Html.BeginForm("SaveBooks", "Books")) {
 

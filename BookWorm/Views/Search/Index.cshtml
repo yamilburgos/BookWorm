@@ -1,12 +1,10 @@
 ﻿@model BookWorm.Models.SearchBooks
 
 @{
-    ViewBag.Title = "Index";
-    ViewBag.PageTitle = "Index";
+    ViewBag.Title = "Search for Books";
+    ViewBag.PageTitle = "Search for Books";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
